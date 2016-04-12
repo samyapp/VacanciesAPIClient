@@ -46,6 +46,20 @@ class Request
 		return $data;
 	}
 	
+	public function __construct()
+	{
+		return $this;
+	}
+	
+	public function __call( $func, $args )
+	{
+		if ( preg_match( '/^set_(?P<property>[a-z0-9_]+)$/i', $func, $match ) ) {
+			$property = $match['property'];
+			$this->$property = $args[0];
+		}
+		return $this;
+	}
+	
 	/**
 	 * Deal with invalid character encoding, 
 	 * simplexml error "input is not proper utf-8 indicate encoding"
