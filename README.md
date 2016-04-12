@@ -1,6 +1,6 @@
-# API Client for the <redacted> Vacancy Search API #
+# API Client for the [redacted] Vacancy Search API #
 
-Version 0.1 of a client to access <redacted> applicant tracking vacancy search API. 
+Version 0.1 of a client to access [redacted] applicant tracking vacancy search API. 
 
 ## Example Usage ##
 
