@@ -1,6 +1,6 @@
 <?php
 
-namespace SamYapp\VacanciesAPI;
+namespace SamYapp\VacancyAPIClient;
 
 /**
  * The details of a job vacancy as returned by the API.
@@ -86,13 +86,18 @@ class Vacancy
 	 * @var string A URL that redirects the user to an application page for applying to the job directly on the website.
 	 */
 	public $AdvertLink;
-	
+
+    /**
+     * @var string Either "Open" (not yet expired) or "Live"
+     */
+    public $JobStatus;
+
 	public static function fromSimpleXML( \SimpleXMLElement $el )
 	{
 		$result = new Vacancy();
 		foreach ( [ 'AdvertLink', 'AdvertisingCompany', 'ContactTelephone', 'ContactEmail', 'ContactName',
 					'ExpiryDate', 'JobLocation', 'AdvertText', 'JobTime', 'JobType',
-					'JobID', 'JobLocation', 'SalaryDescription', 'RealJobTitle', 'AdvertTitle'] as $prop ) {
+					'JobID', 'JobLocation', 'SalaryDescription', 'RealJobTitle', 'AdvertTitle', 'JobStatus'] as $prop ) {
 			$result->$prop = (string)$el->$prop;
 		}
 		return $result;

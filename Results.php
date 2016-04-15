@@ -1,6 +1,6 @@
 <?php
 
-namespace SamYapp\VacanciesAPI;
+namespace SamYapp\VacancyAPIClient;
 
 /**
  * Contains the result of a successful request to the API.
@@ -11,6 +11,14 @@ class Results
 	public $JobFrame;
 	public $RequestSuccess;
 	public $Vacancies = [];
+
+    public static function noResults()
+    {
+        $results = new Results;
+        $results->NoOfVacancies = 0;
+        $results->RequestSuccess = 'Fail';
+        return $results;
+    }
 
 	public static function fromXML( \SimpleXMLElement $xml )
 	{

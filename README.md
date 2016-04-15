@@ -5,9 +5,9 @@ Version 0.1 of a client to access [redacted] applicant tracking vacancy search A
 ## Example Usage ##
 
 ```php
-use \SamYapp\VacanciesAPI;
+use \SamYapp\VacancyAPIClient;
 
-$api = new SamYapp\VacanciesAPI\Request();
+$api = new SamYapp\VacancyAPIClient\Request();
 $api->public_key = '<your-api-key>';
 $api->api_url = '<your-api-url>';
 $api->job_frames = '<job-frame-1>,<job-frame-2>';
